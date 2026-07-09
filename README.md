@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="screens/1.png" alt="TogglDev — One Tap Developer Mode" width="270">
-</p>
-
 <h1 align="center">TogglDev — One Tap. Developer Mode.</h1>
 
 <p align="center">
@@ -13,16 +9,14 @@
   <a href="https://github.com/dpkay-io/toggldev/releases"><img src="https://img.shields.io/github/downloads/dpkay-io/toggldev/total?style=for-the-badge&color=3ddc84&label=GitHub%20Downloads" alt="GitHub Downloads"></a>
   &nbsp;
   <a href="https://github.com/dpkay-io/toggldev/stargazers"><img src="https://img.shields.io/github/stars/dpkay-io/toggldev?style=for-the-badge&color=3ddc84" alt="GitHub Stars"></a>
+  &nbsp;
+  <a href="https://github.com/dpkay-io/toggldev"><img src="https://img.shields.io/badge/⭐_Star_This_Repo-black?style=for-the-badge&logo=github&logoColor=white" alt="Star This Repo"></a>
 </p>
 
 <p align="center">
-  <a href="https://play.google.com/store/apps/details?id=com.dpkay.apps.developer_options_toggler"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" height="80"></a>
+  <a href="https://github.com/dpkay-io/toggldev/releases/latest"><img src="screens/badge_github.svg" alt="Download APK from GitHub" height="80"></a>
   &nbsp;&nbsp;
-  <a href="https://github.com/dpkay-io/toggldev/releases/latest"><img src="https://img.shields.io/badge/Download-APK-3ddc84?style=for-the-badge&logo=android&logoColor=white" alt="Download APK"></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/dpkay-io/toggldev"><img src="https://img.shields.io/badge/⭐_Star_This_Repo-3ddc84?style=for-the-badge&logo=github&logoColor=black" alt="Star This Repo"></a>
+  <a href="https://play.google.com/store/apps/details?id=com.dpkay.apps.developer_options_toggler"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" height="80"></a>
 </p>
 
 ---
@@ -35,12 +29,12 @@ You enable Developer Options for faster animations, USB debugging, and app testi
 
 ---
 
-## Screenshots
+## Snapshots
 
 <p align="center">
-  <img src="screens/2.png" alt="TogglDev App Interface" width="270">
+  <img src="screens/1.png" alt="TogglDev — One Tap Developer Mode" width="270">
   &nbsp;&nbsp;&nbsp;
-  <img src="screens/4.png" alt="TogglDev Privacy & Trust" width="270">
+  <img src="screens/2.png" alt="TogglDev App Interface" width="270">
 </p>
 
 ---
@@ -141,10 +135,4 @@ The app's onboarding screen walks you through this.
 - [Website](https://dpkay.com/toggldev)
 - [Google Play Store](https://play.google.com/store/apps/details?id=com.dpkay.apps.developer_options_toggler)
 - [Privacy Policy](https://dpkay.com/toggldev/privacy-policy.html)
-- [Blog Post](https://dpkay.medium.com/building-toggldev-one-tap-developer-options-without-breaking-your-financial-apps-bf15ffddc1be)
-
 ---
-
-<p align="center">
-  Developed by <a href="https://dpkay.com">Deepak Jha</a>
-</p>
