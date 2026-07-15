@@ -1,7 +1,7 @@
 <h1 align="center">TogglDev — One Tap. Developer Mode.</h1>
 
 <p align="center">
-  Toggle Android Developer Options on and off instantly — via widget, tile, or shortcut.<br>
+  Toggle Android Developer Options on and off instantly — via widget, tile, shortcut, or remotely from your desktop.<br>
   Your settings are automatically saved and restored. No root required.
 </p>
 
@@ -54,15 +54,25 @@ You enable Developer Options for faster animations, USB debugging, and app testi
 | Method | What You Get |
 |--------|-------------|
 | **Quick Settings Tiles** | 5 tiles in your notification shade — swipe down, tap, done |
-| **Home Screen Widgets** | 5 widgets with real-time on/off status |
+| **Home Screen Widgets** | 6 widgets with real-time status — including Remote Access |
 | **App Shortcuts** | Long-press icon → Turn On / Turn Off / Toggle / Dev Settings |
 | **Automation** | Tasker, IFTTT, MacroDroid — control via intents |
 
+### Remote Access
+Control your device's developer settings from your desktop — no cable needed. TogglDev runs a lightweight HTTP server on your phone with secure pairing (6-digit code + token auth). Toggle any setting, check status, or grab wireless debug info from your computer.
+
+- **Companion app:** [TogglDev Remote](https://github.com/dpkay-io/toggldev-remote) — a desktop client for seamless remote control
+- **Home screen widget** shows server status, IP:port, and pairing code at a glance
+- **Free tier:** 10 minutes/day — unlimited for Gourmet supporters
+
 ### Command Automation
-Define custom ADB/shell commands, run them on demand from within the app, and view execution logs with full output capture. Includes timeout support, confirmation dialogs, and localized UI across all 18 languages.
+Define custom ADB/shell commands that run automatically when you toggle Developer Options, USB Debugging, or WiFi Debugging on/off. Separate commands for each trigger event, execution logs with timestamps and exit codes, and automatic privilege detection (base, ADB-elevated, or root).
+
+### App Rules
+Create rules that apply settings to groups of apps. Force-enable, force-disable, or run custom actions when specific apps launch. Conflict detection warns if multiple rules target the same app. Free tier includes 2 rules — unlimited for supporters.
 
 ### Banking App Shield
-Automatically turn off Developer Options when specific apps launch. Configurable delay before re-enabling.
+Automatically turn off Developer Options when banking or payment apps launch. Configurable re-enable delay (30s to 5 minutes, or never). Uses an accessibility service that only reads the foreground app name — nothing else.
 
 ### Smart Snapshot & Restore
 When you disable Developer Options, TogglDev saves every setting. When you re-enable, everything is restored exactly as it was.
@@ -91,7 +101,7 @@ Supports 18 languages: Arabic, Chinese, Danish, Dutch, English, French, German, 
 
 | | |
 |---|---|
-| **Size** | ~2.4 MB |
+| **Size** | ~2.7 MB |
 | **Languages** | 18 |
 | **Android** | 8.0+ (Oreo) |
 | **GMS** | Not required — works on any Android device |
@@ -134,5 +144,6 @@ The app's onboarding screen walks you through this.
 
 - [Website](https://dpkay.com/toggldev)
 - [Google Play Store](https://play.google.com/store/apps/details?id=com.dpkay.apps.developer_options_toggler)
+- [TogglDev Remote (Companion App)](https://github.com/dpkay-io/toggldev-remote)
 - [Privacy Policy](https://dpkay.com/toggldev/privacy-policy.html)
 ---
