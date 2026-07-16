@@ -131,12 +131,29 @@ adb shell pm grant com.dpkay.apps.developer_options_toggler android.permission.W
 
 The app's onboarding screen walks you through this.
 
+> **Note for OnePlus/Xiaomi users:** You might have to **Disable Permission Monitoring** or **Disable System Optimization** in your developer options for the ADB command to work.
+
+---
+
+## Roadmap
+
+- [x] Theme support
+- [x] One tap Wireless debugging widget
+- [x] App rules to customize individual developer setting toggle for app launch
+- [x] Command automation to run any shell commands on toggle of Developer options and Debugging
+- [x] Remote access and MCP to seamlessly control Developer options for Agentic development with Claude, Gemini and others
+- [ ] Shizuku integrations
+- [ ] Remove Accessibility Services dependency
+- [ ] Master widget to support more toggles
+- [ ] App commands automation
+
 ---
 
 ## Featured In
 
 - [**HowToMen**](https://youtu.be/2QBFRcqee7I?t=622) — Top 15 Best Android Apps, July 2026
 - [**ODORIZZI**](https://youtu.be/RaAqTCALHpU) — Nunca mais desligue o MODO DESENVOLVEDOR no Android
+- [**Trakin Tech Tamil**](https://youtu.be/1RoaZy-zVHA?si=A7Nj5sonPxcDfzNj&t=134) — Best New Free Android Apps
 
 ---
 
