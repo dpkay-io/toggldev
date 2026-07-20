@@ -46,15 +46,17 @@ You enable Developer Options for faster animations, USB debugging, and app testi
 - **USB Debugging** (ADB)
 - **Wireless Debugging** (ADB over WiFi) — shows IP:Port, tap to copy
 - **Animation Scales** — window, transition, animator duration (0x–2x)
-- **Show Touches**, **Stay Awake While Plugged In**, **Force RTL Layout**, **Don't Keep Activities**, **Wait for Debugger**
+- **Show Touches**, **Pointer Location**, **Show Layout Bounds**
+- **Stay Awake While Plugged In**, **Force RTL Layout**, **Don't Keep Activities**, **Wait for Debugger**
+- **Wi-Fi Scan Throttling**, **Bluetooth Disable Absolute Volume**, **Mobile Data Always On**, **Freeform Windows**
 - **Modify all supported settings inline** — change values directly from within the app
 
 ### Toggle From Anywhere
 
 | Method | What You Get |
 |--------|-------------|
-| **Quick Settings Tiles** | 5 tiles in your notification shade — swipe down, tap, done |
-| **Home Screen Widgets** | 6 widgets with real-time status — including Remote Access |
+| **Quick Settings Tiles** | 6 tiles in your notification shade — swipe down, tap, done |
+| **Home Screen Widgets** | 7 widgets with real-time status — including Remote Access |
 | **App Shortcuts** | Long-press icon → Turn On / Turn Off / Toggle / Dev Settings |
 | **Automation** | Tasker, IFTTT, MacroDroid — control via intents |
 
@@ -73,6 +75,9 @@ Create rules that apply settings to groups of apps. Force-enable, force-disable,
 
 ### Banking App Shield
 Automatically turn off Developer Options when banking or payment apps launch. Configurable re-enable delay (30s to 5 minutes, or never). Uses an accessibility service that only reads the foreground app name — nothing else.
+
+### Accessibility Hide
+Some banking and security apps detect not just Developer Options, but also running accessibility services. Accessibility Hide temporarily disables all accessibility services when a targeted app launches, then silently restores them when the app exits. Works per-app — select which apps trigger the hide. Requires Usage Access permission for app lifecycle monitoring. Integrates with App Rules so your existing rules get accessibility hiding automatically.
 
 ### Smart Snapshot & Restore
 When you disable Developer Options, TogglDev saves every setting. When you re-enable, everything is restored exactly as it was.
@@ -143,6 +148,7 @@ The app's onboarding screen walks you through this.
 - [x] Command automation to run any shell commands on toggle of Developer options and Debugging
 - [x] Remote access and MCP to seamlessly control Developer options for Agentic development with Claude, Gemini and others
 - [ ] Shizuku integrations
+- [x] Accessibility Hide — auto-disable accessibility services for targeted apps
 - [ ] Remove Accessibility Services dependency
 - [ ] Master widget to support more toggles
 - [ ] App commands automation
