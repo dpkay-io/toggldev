@@ -155,7 +155,7 @@ Supports 18 languages: Arabic, Chinese, Danish, Dutch, English, French, German, 
 
 | | |
 |---|---|
-| **Size** | ~3.4 MB |
+| **Size** | ~3.1 MB |
 | **Languages** | 18 |
 | **Android** | 8.0+ (Oreo) |
 | **GMS** | Not required — works on any Android device |
