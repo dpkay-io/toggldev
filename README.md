@@ -65,17 +65,17 @@ You enable Developer Options for faster animations, USB debugging, and app testi
 The **Action** widget pins any single App Rule or saved command to your home screen — you pick which one when you place it.
 
 ### Safe Apps
-A shortcut row for every app you have added to Auto Turn Off, plus every app covered by an enabled App Rule. Tapping an app **applies its rule first, then opens the app** — so banking, payment, and DRM apps that refuse to run while debugging is on start cleanly every time.
+A shortcut row for every app you have added to Auto Dev Options Off, plus every app covered by an enabled App Rule. Tapping an app **applies its rule first, then opens the app** — so banking, payment, and DRM apps that refuse to run while debugging is on start cleanly every time.
 
 - **Long-press to pin** any safe app to your home screen — the pinned shortcut applies the rule then launches, without opening TogglDev
 - Reachable without opening the app at all — long-press the TogglDev icon, or add the **Safe Apps widget** — both open a floating drawer
 - Any launcher offering Android's standard shortcut picker lists TogglDev as **"Launch a safe app"**, so the toggle is guaranteed even when the launch comes from outside TogglDev
-- The row fills itself — add an app to Auto Turn Off or enable an App Rule and it appears automatically
+- The row fills itself — add an app to Auto Dev Options Off or enable an App Rule and it appears automatically
 
 ### Toggle Zone
 Decide exactly which settings the master switch is allowed to touch. Tap the wrench icon next to **Developer Options**, then tick everything TogglDev may change — anything left unticked is never touched.
 
-Your choice applies to the master switch, Quick Settings tiles, widgets, Auto Turn Off, and Turn Off / Turn On app rules. Custom rules always use the settings picked inside the rule itself.
+Your choice applies to the master switch, Quick Settings tiles, widgets, Auto Dev Options Off, and Turn Off / Turn On app rules. Custom rules always use the settings picked inside the rule itself.
 
 > Leaving USB or wireless debugging outside the zone means they stay on after everything else goes off — and banking or payment apps can spot that and still refuse to run.
 
@@ -84,23 +84,38 @@ Control your device's developer settings from your desktop — no cable needed. 
 
 - **Companion app:** [TogglDev Remote](https://github.com/dpkay-io/toggldev-remote) — a desktop client for seamless remote control
 - **Home screen widget** shows server status, IP:port, and pairing code at a glance
+- **Pairing code controls** — show or hide the code, or reset it to disconnect every paired computer at once
 - **Free tier:** 10 minutes/day — unlimited for Gourmet supporters
 
 ### Command Automation
-Define custom ADB/shell commands that run automatically when you toggle Developer Options, USB Debugging, or WiFi Debugging on/off. Separate commands for each trigger event, execution logs with timestamps and exit codes, and automatic privilege detection (base, ADB-elevated, or root).
+Define shell commands that run automatically when you toggle Developer Options, USB Debugging, or WiFi Debugging on/off. Separate commands for each trigger event, execution logs with timestamps and exit codes, and root detection.
+
+Commands run with TogglDev's own app permissions, so Android refuses system commands such as `am`, `svc`, `input` and `settings`; on a rooted phone, start them with `su -c`. The editor warns you about such commands, and the log explains a refusal.
 
 ### App Rules
 Create rules that apply settings to groups of apps. Force-enable, force-disable, or run custom actions when specific apps launch, and restore the original state after a configurable delay. Conflict detection warns if multiple rules target the same app.
 
-Unlike Auto Turn Off (a single global list), App Rules let you create multiple independent rules with different behavior per app group.
+Unlike Auto Dev Options Off (a single global list), App Rules let you create multiple independent rules with different behavior per app group. A rule can also hide accessibility for its apps.
 
-### Auto Turn Off
-Automatically turn off Developer Options when banking or payment apps launch, and turn them back on after you leave. Pick which apps trigger the switch and choose a re-enable delay — **1 second to 5 minutes, or never**. Uses an accessibility service that only reads the foreground app name — nothing else.
+### Auto Dev Options Off
+Automatically turn off Developer Options when banking or payment apps launch, and turn them back on after you leave. Pick which apps trigger the switch and choose a re-enable delay — **1 second to 5 minutes, or never**. Developer Options wait to come back while one of those apps is still on screen. Uses an accessibility service that only reads the foreground app name and the name of the icon you tap on your home screen — nothing else.
 
-Two extras live on the same screen:
+- **Ask to Close** — lives on the same screen: when you leave one of these apps, TogglDev asks whether to close it and clear it from Recents, so it cannot come back before Developer Options are restored.
+- **Apps that open apps** (Settings) — home screens are always covered; add other apps that launch apps for you so protection kicks in on taps from them too.
 
-- **Accessibility Hide** — some apps crash or refuse to start when they detect a running accessibility service. This hides TogglDev from the apps you choose, only while they are open, then silently restores everything when you leave. Works per-app and integrates with App Rules. Requires Usage Access permission.
-- **Ask to Close** — when you leave one of these apps, TogglDev asks whether to close it and clear it from Recents, so it cannot come back before Developer Options are restored.
+### Hide Accessibility
+Some apps — often banking or payment apps — refuse to open or stop working while any accessibility service is on. Hide Accessibility turns every accessibility service off while one of the apps you pick is open, and turns them back on after you leave.
+
+- **Bring accessibility back** — choose how soon that happens. **Immediately** is the safest choice: while accessibility is hidden, TogglDev pauses and your other accessibility apps, including TalkBack, stay off.
+- Has its own screen, and any App Rule can hide accessibility too
+- Requires Usage Access permission, which is how TogglDev notices you have left the app
+
+### Backup & Restore
+Export your setup — Toggle Zone, Auto Dev Options Off, Hide Accessibility, App Rules, commands and Apps that open apps — to a file you choose, and import it on a new phone or after a reset.
+
+- **Merge** adds what is in the file and keeps everything else; **Replace** makes the phone match the file
+- A preview shows every change before anything is applied
+- Imported commands arrive switched off, so nothing runs until you have read it
 
 ### Smart Snapshot & Restore
 When you disable Developer Options, TogglDev saves every setting. When you re-enable, everything is restored exactly as it was. A lifetime toggle counter tracks how many times you have done it — and how much time that saved you.
@@ -108,13 +123,13 @@ When you disable Developer Options, TogglDev saves every setting. When you re-en
 ### Staying Reliable
 Android pauses background apps aggressively. Three switches in Settings keep TogglDev dependable:
 
-- **Unrestricted Battery** — excludes TogglDev from battery optimization so it keeps running. Recommended if you use Auto Turn Off or App Rules.
+- **Unrestricted Battery** — excludes TogglDev from battery optimization so it keeps running. Recommended if you use Auto Dev Options Off or App Rules.
 - **Keep Alive** — a small ongoing notification keeps TogglDev awake, so widgets and tiles always match the real setting.
 - **Restore Prompt** — after TogglDev switches Developer Options off, a notification offers one-tap Restore to bring your settings back and clear safe apps from Recents.
 
-If the accessibility service ever gets switched off, TogglDev **warns you with a notification** — without it, Auto Turn Off and App Rules quietly stop working and nothing else would tell you.
+If the accessibility service ever gets switched off, TogglDev **warns you with a notification** — without it, Auto Dev Options Off and App Rules quietly stop working and nothing else would tell you.
 
-**Diagnostic Logs** (Settings) keep the last 7 days of toggle events, shareable when reporting a problem — events and timings only, no personal data.
+**Diagnostic Logs** (Settings) keep the last 7 days of toggle events, shareable when reporting a problem — events and timings only, no personal data, and apps you have not set up in TogglDev are never named.
 
 ### Themes
 Choose your preferred app theme to match your style or system settings.
@@ -140,7 +155,7 @@ Supports 18 languages: Arabic, Chinese, Danish, Dutch, English, French, German, 
 
 | | |
 |---|---|
-| **Size** | ~3.1 MB |
+| **Size** | ~3.4 MB |
 | **Languages** | 18 |
 | **Android** | 8.0+ (Oreo) |
 | **GMS** | Not required — works on any Android device |
@@ -168,7 +183,7 @@ TogglDev needs `WRITE_SECURE_SETTINGS` to toggle developer options. One-time ADB
 adb shell pm grant com.dpkay.apps.developer_options_toggler android.permission.WRITE_SECURE_SETTINGS
 ```
 
-The app's onboarding screen walks you through this.
+The app's onboarding walks you through it step by step — from a computer, a web browser, the phone itself, or another phone — with tips for Samsung, Xiaomi, OnePlus, vivo, Huawei and other brands. TogglDev checks on its own when you come back.
 
 > **Note for OnePlus/Xiaomi users:** You might have to **Disable Permission Monitoring** or **Disable System Optimization** in your developer options for the ADB command to work.
 
