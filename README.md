@@ -56,11 +56,11 @@ You enable Developer Options for faster animations, USB debugging, and app testi
 | Method | What You Get |
 |--------|-------------|
 | **Quick Settings Tiles** | 6 tiles in your notification shade — swipe down, tap, done |
-| **Home Screen Widgets** | 9 widgets with real-time status — including Safe Apps, Action, and Remote Access |
+| **Home Screen Widgets** | 10 widgets with real-time status — including Safe Apps, Action, and Remote Access |
 | **App Shortcuts** | Long-press icon → Turn On / Turn Off / Toggle / Dev Settings / Safe Apps |
 | **Automation** | Tasker, IFTTT, MacroDroid — control via intents |
 
-**Widgets:** Developer Options · Developer Options & Accessibility · USB Debugging · Wireless Debugging · Dev Settings · Accessibility · Safe Apps · Action · Remote Access
+**Widgets:** Developer Options · Developer Options & Accessibility · Developer Options, Accessibility & VPN · USB Debugging · Wireless Debugging · Dev Settings · Accessibility · Safe Apps · Action · Remote Access
 
 The **Action** widget pins any single App Rule or saved command to your home screen — you pick which one when you place it.
 
@@ -95,7 +95,7 @@ Commands run with TogglDev's own app permissions, so Android refuses system comm
 ### App Rules
 Create rules that apply settings to groups of apps. Force-enable, force-disable, or run custom actions when specific apps launch, and restore the original state after a configurable delay. Conflict detection warns if multiple rules target the same app.
 
-Unlike Auto Dev Options Off (a single global list), App Rules let you create multiple independent rules with different behavior per app group. A rule can also hide accessibility for its apps.
+Unlike Auto Dev Options Off (a single global list), App Rules let you create multiple independent rules with different behavior per app group. A rule can also hide accessibility or turn off the VPN for its apps.
 
 ### Auto Dev Options Off
 Automatically turn off Developer Options when banking or payment apps launch, and turn them back on after you leave. Pick which apps trigger the switch and choose a re-enable delay — **1 second to 5 minutes, or never**. Developer Options wait to come back while one of those apps is still on screen. Uses an accessibility service that only reads the foreground app name and the name of the icon you tap on your home screen — nothing else.
@@ -110,8 +110,18 @@ Some apps — often banking or payment apps — refuse to open or stop working w
 - Has its own screen, and any App Rule can hide accessibility too
 - Requires Usage Access permission, which is how TogglDev notices you have left the app
 
+### Turn Off VPN
+Some banking, payment and work apps show errors or stop working while a VPN is on. Turn off VPN switches off whatever VPN is running while one of the apps you pick is open.
+
+- **Three ways to use it** — pick apps on the Turn off VPN screen, add it to an App Rule, or tap the **Developer Options, Accessibility & VPN** widget (set up Turn off VPN first)
+- **Reconnects for you** — Tailscale and OpenVPN for Android come back after you leave, after a delay you can set. OpenVPN for Android needs a one-time setup and a profile without a password. Other VPN apps get a notification so you can reconnect them
+- **Wait until the app opens** — optional: when TogglDev has to guess which app you tapped, the VPN stays on until that app is on screen
+- **Private** — TogglDev never runs a VPN or sees your traffic. Android's prompt mentions monitoring network traffic; that permission is what lets an app stop a VPN
+- Needs Android's VPN permission, plus the accessibility service for per-app turn off. With more than one VPN app installed, reconnecting also needs Usage Access
+- A VPN set to **Always-on** can't be turned off
+
 ### Backup & Restore
-Export your setup — Toggle Zone, Auto Dev Options Off, Hide Accessibility, App Rules, commands and Apps that open apps — to a file you choose, and import it on a new phone or after a reset.
+Export your setup — Toggle Zone, Auto Dev Options Off, Hide Accessibility, Turn off VPN, App Rules, commands and Apps that open apps — to a file you choose, and import it on a new phone or after a reset.
 
 - **Merge** adds what is in the file and keeps everything else; **Replace** makes the phone match the file
 - A preview shows every change before anything is applied
@@ -200,6 +210,7 @@ The app's onboarding walks you through it step by step — from a computer, a we
 - [x] Accessibility Hide — auto-disable accessibility services for targeted apps
 - [x] Safe Apps — launch protected apps with their rule already applied
 - [x] Toggle Zone — choose exactly which settings the master toggle may change
+- [x] Turn off VPN — switch off the VPN for chosen apps and reconnect supported ones
 - [ ] Remove Accessibility Services dependency
 - [ ] Master widget to support more toggles
 - [ ] App commands automation
